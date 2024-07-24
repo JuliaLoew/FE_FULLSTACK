@@ -1,4 +1,5 @@
 import {useState , useEffect} from 'react';
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
