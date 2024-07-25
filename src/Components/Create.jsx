@@ -73,48 +73,48 @@ const Create = () => {
       {showHome ? <Home/> :
       <form onSubmit={handleSubmit}>
         <h1 className="text-2xl font-bold mb-3">Create a new post</h1>
-        <label className="input input-bordered flex items-center gap-2 mb-3">
+        <label className="flex items-center gap-2 mb-3">
           Title
           <input 
             type="text" 
             name="title" 
             value={formData.title || ""} 
             onChange={handleChange} 
-            className="grow"
+            className="input input-bordered grow"
             required
           />
         </label>
-        <label className="input input-bordered flex items-center gap-2 mb-3">
+        <label className="flex items-center gap-2 mb-3">
           Author
           <input 
             type="text" 
             name="author" 
             value={formData.author || ""} 
             onChange={handleChange} 
-            className="grow"
+            className="input input-bordered grow"
             required
           />
         </label>
-        <label className="input input-bordered flex items-center gap-2 mb-3">
+        <label className="flex items-center gap-2 mb-3">
           Image Link
           <input 
             type="text" 
             name="cover" 
             value={formData.cover || ""} 
             onChange={handleChange} 
-            className="grow"
+            className="input input-bordered grow"
             required
           />
         </label>
-        <label className="input input-bordered flex items-center gap-2 mb-3">
+        <label className="flex items-center gap-2 mb-3 h-24">
           Content
           <textarea
-            className="textarea textarea-bordered textarea-xs w-full max-w-xs" 
-            name="content" 
-            value={formData.content || ""} 
-            onChange={handleChange} 
-            required
-          ></textarea>
+                className="textarea textarea-bordered textarea-md w-full max-w-xs"
+                name="content" 
+                value={formData.content || ""} 
+                onChange={handleChange} 
+                required>
+          </textarea>
         </label>
         <button type="submit" className="btn">Submit</button>
       </form>
