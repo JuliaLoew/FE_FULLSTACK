@@ -19,8 +19,8 @@ const Home = () => {
 
 
     return (
-      <div className='container mx-auto p-4'>
-        <h1 className='text-3xl font-bold p-4'>All Blog Posts</h1>
+      <div className='container mx-auto'>
+        <h2 className='text-3xl font-bold py-4'>All E-Books</h2>
         {error && <p className='text-red-500'>{error}</p>}
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4'>
         {posts.map((posts) => (
@@ -30,11 +30,11 @@ const Home = () => {
             </figure>
 
             <div className='card-body'>
-              <h2 className='card-title'>
+              <h3 className='card-title'>
                 {posts.title}
-              </h2>
+              </h3>
               <p>
-                {posts.content.substring(0, 100)}...
+                {posts.content.substring(0, 200)}...
               </p>
               <div className='card-actions justify-end'>
                 <Link to={`/posts/${posts.id}`} className='btn btn-primary'>Read More</Link>
