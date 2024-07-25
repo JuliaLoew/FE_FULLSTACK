@@ -37,9 +37,7 @@ const Home = () => {
                 {posts.content.substring(0, 100)}...
               </p>
               <div className='card-actions justify-end'>
-                <button className='btn btn-primary'>
-                  <Link to={`/posts/${posts.id}`}>Read More</Link>
-                  </button>
+                <Link to={`/posts/${posts.id}`} className='btn btn-primary'>Read More</Link>
               </div>
             </div>
           </div>
