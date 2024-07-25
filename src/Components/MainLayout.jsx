@@ -20,9 +20,9 @@ const MainLayout = () => {
           <li>
             <Link to="/Create">Create</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/Details">Details</Link>
-          </li>
+          </li> */}
         </ul>
         <div className="container mx-auto">
           <Outlet />

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
-const Details = ({id}) => {
+const Details = () => {
+  const { id } = useParams();
   const [post, setPost] = useState(
     {
       id: "",
@@ -22,7 +23,7 @@ const navigate = useNavigate();
 useEffect(() => {
   const fetchData = async () => {
     try {
-      const id = 17;
+      // const id = 17;
       console.log(`Fetching data for ID: ${id}`);
       const response = await fetch(`http://localhost:3000/posts/${id}`, {
         method: 'GET',
@@ -48,9 +49,13 @@ useEffect(() => {
       
 }, [id]);
 
+const handleBackToHome = () => {
+  navigate('/');
+};
+
 const handleDelete = async () => {
   try {
-    const id = 17;
+    // const id = 17;
     const response = await fetch(`http://localhost:3000/posts/${id}`, {
       method: 'DELETE',
       headers: {
@@ -74,7 +79,7 @@ const handleDelete = async () => {
 const handleUpdate = async (event) => {
  event.preventDefault();
  try {
-  const id = 17;
+  // const id = 17;
   const response = await fetch(`http://localhost:3000/posts/${id}`, {
     method: 'PUT',
      headers: {
@@ -104,7 +109,6 @@ const handleChange = (event) => {
 
 
 
-
 if (loading) {
   return <div>Lädt...</div>;
 }
@@ -115,11 +119,12 @@ if (error) {
 
 return (
   <div>
-    <div className="card bg-base-100 w-96 shadow-xl">
+    <div className="card bg-base-100 w-w-md h-auto shadow-xl">
   <figure>
     <img
       src={post.cover}
-      alt={post.title} />
+      alt={post.title}
+      className="w-96 h-96 object-cover" />
   </figure>
   <div className="card-body">
 
@@ -132,7 +137,7 @@ return (
                 value={post.title}
                 onChange={handleChange}
                 placeholder="Title"
-                className="input input-bordered"
+                className="input input-bordered w-full "
               />
               <input
                 type="text"
@@ -140,14 +145,14 @@ return (
                 value={post.author}
                 onChange={handleChange}
                 placeholder="Author"
-                className="input input-bordered"
+                className="input input-bordered w-full"
               />
               <textarea
                 name="content"
                 value={post.content}
                 onChange={handleChange}
                 placeholder="Content"
-                className="textarea textarea-bordered"
+                className="textarea textarea-bordered w-full h-64"
               />
               <input
                 type="text"
@@ -155,7 +160,7 @@ return (
                 value={post.cover}
                 onChange={handleChange}
                 placeholder="Cover URL"
-                className="input input-bordered"
+                className="input input-bordered w-full"
               />
               <button type="submit" className="btn btn-primary">Save</button>
             </form>
@@ -169,6 +174,7 @@ return (
     <div className="card-actions justify-end">
       <button onClick={() => setIsEditing(true)} className="btn btn-primary">Update</button>
       <button onClick={handleDelete} className="btn btn-primary">Delete</button>
+      <button onClick={handleBackToHome} className="btn btn-primary">Back</button>
     </div>
     </>
           )}
